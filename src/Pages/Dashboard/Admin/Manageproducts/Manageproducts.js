@@ -4,7 +4,7 @@ import Manageproduct from "./Manageproduct";
 const Manageproducts = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/watches")
+    fetch("https://limitless-gorge-19554.herokuapp.com/watches")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);
@@ -13,7 +13,7 @@ const Manageproducts = () => {
       "Are you sure, you want to delete this product?"
     );
     if (confirmLog) {
-      fetch(`http://localhost:5000/watches?id=${id}`, {
+      fetch(`https://limitless-gorge-19554.herokuapp.com/watches?id=${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())

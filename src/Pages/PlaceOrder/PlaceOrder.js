@@ -13,7 +13,7 @@ const PlaceOrder = () => {
   const [watch, setWatch] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/watches")
+    fetch("https://limitless-gorge-19554.herokuapp.com/watches")
       .then((res) => res.json())
       .then((data) => {
         setWatch(data.find((pd) => pd._id == _id));
@@ -31,7 +31,7 @@ const PlaceOrder = () => {
       phone: phoneRef.current.value,
       status: "pending",
     };
-    fetch("http://localhost:5000/orders", {
+    fetch("https://limitless-gorge-19554.herokuapp.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",

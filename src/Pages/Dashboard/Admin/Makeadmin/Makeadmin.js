@@ -3,14 +3,14 @@ import React, { useRef } from "react";
 const Makeadmin = () => {
   const emailRef = useRef();
   const handleMakeAdminBtn = (e) => {
-    fetch(`http://localhost:5000/allusers?email=${emailRef.current.value}`, {
+    fetch(`https://limitless-gorge-19554.herokuapp.com/allusers?email=${emailRef.current.value}`, {
       method: "PUT",
     })
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
           alert(`${emailRef.current.value} is now an admin.`);
-          emailRef.current.value="";
+          emailRef.current.value = "";
         }
       });
     e.preventDefault();
@@ -28,7 +28,7 @@ const Makeadmin = () => {
           <div className="mb-4">
             <label htmlFor="name">
               Email
-            </label> <br/>
+            </label> <br />
             <input
               ref={emailRef}
               type="text"

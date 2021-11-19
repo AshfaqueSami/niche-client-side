@@ -10,12 +10,12 @@ const Home = () => {
   const [watches, setWatches] = useState([]);
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/watches")
+    fetch("https://limitless-gorge-19554.herokuapp.com/watches")
       .then((res) => res.json())
       .then((data) => setWatches(data));
   }, []);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch("https://limitless-gorge-19554.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

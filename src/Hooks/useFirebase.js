@@ -31,7 +31,7 @@ const useFirebase = () => {
   }, [auth]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allusers?email=${user.email}`)
+    fetch(`https://limitless-gorge-19554.herokuapp.com/allusers?email=${user.email}`)
       .then((res) => res.json())
       .then((data) => setAdmin(data.admin));
   }, [user.email]);
@@ -51,10 +51,10 @@ const useFirebase = () => {
           .then(() => {
             // Profile updated!
           })
-          .catch((error) => {});
+          .catch((error) => { });
         history.replace("/home");
       })
-      .catch((error) => {})
+      .catch((error) => { })
       .finally(() => setLoading(false));
   };
   const userSignIn = (email, password, location, history) => {
@@ -66,7 +66,7 @@ const useFirebase = () => {
         const uri = location?.state?.from || "/home"
         history.replace(uri);
       })
-      .catch((error) => {})
+      .catch((error) => { })
       .finally(() => setLoading(false));
   };
   const logOut = () => {
@@ -80,7 +80,7 @@ const useFirebase = () => {
   };
   const saveUser = (email, displayName, method) => {
     const newUser = { displayName, email };
-    fetch("http://localhost:5000/users", {
+    fetch("https://limitless-gorge-19554.herokuapp.com/users", {
       method: method,
       headers: {
         "content-type": "application/json",
